@@ -63,6 +63,13 @@ const resources = {
           window: '窗边',
         },
       },
+      home: {
+        recommend: {
+          title: '今日推荐',
+          subtitle: '人气菜品，先睹为快',
+          detail_cta: '选桌进入点餐',
+        },
+      },
       welcome: {
         badge: '欢迎光临',
         title: '欢迎光临沸点！',
@@ -299,6 +306,13 @@ const resources = {
           booth: 'Booth',
           room: 'Private Room',
           window: 'Window Seat',
+        },
+      },
+      home: {
+        recommend: {
+          title: "Today's Picks",
+          subtitle: 'Popular dishes at a glance',
+          detail_cta: 'Select Table to Order',
         },
       },
       welcome: {
