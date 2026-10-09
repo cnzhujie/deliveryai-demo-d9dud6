@@ -35,16 +35,16 @@ test.describe('首页推荐菜区域 - E2E 验收测试', () => {
     await page.goto('/')
     // 点击第一道推荐菜（鎏金番茄鸳鸯锅）
     await page.getByRole('heading', { name: '鎏金番茄鸳鸯锅' }).click()
-    // 弹窗标题为菜品名称
-    await expect(page.getByRole('heading', { name: '鎏金番茄鸳鸯锅' })).toBeVisible()
+    // 弹窗出现，断言限定到 dialog 作用域以避免匹配到卡片上的重复文案
+    const dialog = page.getByRole('dialog')
     // 弹窗包含徽章
-    await expect(page.getByText('人气 No.1')).toBeVisible()
+    await expect(dialog.getByText('人气 No.1')).toBeVisible()
     // 弹窗包含价格
-    await expect(page.getByText('¥68').first()).toBeVisible()
+    await expect(dialog.getByText('¥68')).toBeVisible()
     // 弹窗包含描述
-    await expect(page.getByText('慢熬番茄与醇香牛油，一锅双味')).toBeVisible()
+    await expect(dialog.getByText('慢熬番茄与醇香牛油，一锅双味')).toBeVisible()
     // 弹窗包含"选桌进入点餐"按钮
-    await expect(page.getByRole('button', { name: '选桌进入点餐' })).toBeVisible()
+    await expect(dialog.getByRole('button', { name: '选桌进入点餐' })).toBeVisible()
   })
 
   test('REQ-003: 弹窗内"选桌进入点餐"按钮触发绑桌并进入 welcome', async ({ page }) => {
